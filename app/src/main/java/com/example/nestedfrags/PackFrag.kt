@@ -33,40 +33,23 @@ class PackFrag : Fragment() {
     private lateinit var tempHolder: ValueHolder
     private lateinit var voltsHolder: ValueHolder
 
-    fun showDialog(title : String?, context: Context) {
-        val getInputFromUser: AlertDialog.Builder = AlertDialog.Builder(context)
-        getInputFromUser.setTitle("Enter $title")
-// Set up the input
-        val input = EditText(context)
-        input.setHint(title)
-        input.inputType = InputType.TYPE_CLASS_TEXT
-        getInputFromUser.setView(input)
-        getInputFromUser.setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
-            // Here you get get input text from the Edittext
-            name = input.text.toString()
-        })
-        getInputFromUser.setNegativeButton(
-            "Cancel",
-            DialogInterface.OnClickListener { dialog, which -> dialog.cancel()
-            })
-        getInputFromUser.show()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             name = it.getString(NAME)
-            tempHolder = ValueHolder()
-            voltsHolder = ValueHolder()
+            tempHolder = arguments?.let { ValueHolder.newInstance("Temp", it.getFloat(TEMP)) }!!
+            voltsHolder = arguments?.let { ValueHolder.newInstance("Volt", it.getFloat(VOLTS)) }!!
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
+
         var view = inflater.inflate(R.layout.fragment_pack, container, false)
+        this.parentFragmentManager.beginTransaction().add(R.id.voltHolder, voltsHolder).commit()
+        this.parentFragmentManager.beginTransaction().add(R.id.tempHolder, tempHolder).commit()
         var packName : TextView? = view.findViewById(R.id.packName)
         packName?.setText(name)
-        tempHolder = arguments?.let { ValueHolder.newInstance("Temp", it.getFloat(TEMP)) }!!
         return view
     }
 

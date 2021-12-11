@@ -5,12 +5,13 @@
       <map>
         <entry key="app/src/main/res/drawable/rounded_rect.xml" value="0.440625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3146551724137931" />
+        <entry key="app/src/main/res/layout/activity_set_pack.xml" value="0.328125" />
         <entry key="app/src/main/res/layout/fragment_pack.xml" value="0.40989583333333335" />
         <entry key="app/src/main/res/layout/fragment_value_holder.xml" value="1.0" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="15" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="15" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -2,10 +2,10 @@ package com.example.nestedfrags
 
 import android.util.Log
 
-class Pack constructor(numberOfModule: Int){
+class Pack constructor(name: String?,numberOfModule: Int){
     var name = "pack"
     var modules = (1..numberOfModule).map { Module() }
-    var avTemp : Float = 0.0f
+    var avTemp : Float =  0.0f
     var avVolt : Float = 0.0f
     init {
         setAverages(modules)
